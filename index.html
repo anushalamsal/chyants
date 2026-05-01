@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>a question</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -50,12 +50,13 @@
 
   .eyebrow {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    color: #d4789a;
+    font-size: clamp(1.1rem, 3.5vw, 1.45rem);
+    letter-spacing: 0.05em;
+    color: #c2185b;
     margin-bottom: 1.6rem;
-    font-weight: 300;
-    font-style: italic;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.5;
   }
 
   .photo {
@@ -163,7 +164,7 @@
 
 <div class="card">
 
-  <p class="eyebrow">after 5 years of chasing you and playing hide and seek with you</p>
+  <p class="eyebrow">After 5 Years of Chasing You and Playing Hide and Seek with You</p>
 
   <!-- ═══════════════════════════════════════════════════════ -->
   <!-- PICTURE LINE: replace "your-photo.jpg" with your image -->
@@ -173,21 +174,21 @@
 
   <div id="main-content">
     <h1>
-      will you, the most nerve-wracking person that gets under my skin
+      Will you, the most nerve-wracking person that gets under my skin
       yet I want closer and closer —
       go out on an actual date with me please?
     </h1>
     <div class="divider"></div>
 
     <div class="buttons" id="btn-area">
-      <button class="btn-yes" onclick="sayYes()">Yes 🩷🩷</button>
+      <button class="btn-yes" onclick="sayYes()">Yes 💕</button>
       <button class="btn-no" id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()">No</button>
     </div>
   </div>
 
   <div class="yay" id="yay-msg">
-    <div class="yay-text">can't wait.</div>
-    <div class="yay-sub">see you soon</div>
+    <div class="yay-text">see you around the green, my fulkumari 🌿</div>
+    <div class="yay-sub">can't wait</div>
   </div>
 
 </div>
