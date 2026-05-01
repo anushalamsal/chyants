@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>a question</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap');
 
@@ -33,7 +36,7 @@
     border-radius: 20px;
     border: 1px solid #f2c4d4;
     padding: 3rem 3.5rem;
-    max-width: 480px;
+    max-width: 520px;
     width: 90vw;
     text-align: center;
     animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -46,21 +49,33 @@
   }
 
   .eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
     color: #d4789a;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.6rem;
     font-weight: 300;
+    font-style: italic;
+  }
+
+  .photo {
+    width: 100%;
+    max-width: 340px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 auto 2rem;
+    display: block;
+    border: 1px solid #f2c4d4;
   }
 
   h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-size: clamp(1.25rem, 4vw, 1.65rem);
     font-weight: 300;
     color: #2d1a24;
-    line-height: 1.4;
-    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    margin-bottom: 2.2rem;
     font-style: italic;
   }
 
@@ -68,7 +83,7 @@
     width: 40px;
     height: 1px;
     background: #f2c4d4;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 2.2rem;
   }
 
   .buttons {
@@ -110,7 +125,7 @@
     position: absolute;
     right: 0;
     white-space: nowrap;
-    transition: none;
+    transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
   }
 
   .yay {
@@ -147,24 +162,38 @@
 <div class="bg-dots"></div>
 
 <div class="card">
-  <p class="eyebrow">five years later</p>
-  <h1 id="main-content">will you please go out on an actual date with me?</h1>
-  <div class="divider"></div>
 
-  <div class="buttons" id="btn-area">
-    <button class="btn-yes" onclick="sayYes()">yes</button>
-    <button class="btn-no" id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()">no</button>
+  <p class="eyebrow">after 5 years of chasing you and playing hide and seek with you</p>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PICTURE LINE: replace "your-photo.jpg" with your image -->
+  <!-- filename and upload that image to your GitHub repo too  -->
+  <img src="your-photo.jpg" alt="us" class="photo" />
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div id="main-content">
+    <h1>
+      will you, the most nerve-wracking person that gets under my skin
+      yet I want closer and closer —
+      go out on an actual date with me please?
+    </h1>
+    <div class="divider"></div>
+
+    <div class="buttons" id="btn-area">
+      <button class="btn-yes" onclick="sayYes()">Yes 🩷🩷</button>
+      <button class="btn-no" id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()">No</button>
+    </div>
   </div>
 
   <div class="yay" id="yay-msg">
     <div class="yay-text">can't wait.</div>
     <div class="yay-sub">see you soon</div>
   </div>
+
 </div>
 
 <script>
   const noBtn = document.getElementById('noBtn');
-  const btnArea = document.getElementById('btn-area');
 
   function moveNo() {
     const maxX = Math.min(window.innerWidth * 0.3, 180);
@@ -172,13 +201,10 @@
     const randX = (Math.random() - 0.5) * maxX * 2;
     const randY = (Math.random() - 0.5) * maxY * 2;
     noBtn.style.transform = `translate(${randX}px, ${randY}px)`;
-    noBtn.style.transition = 'transform 0.18s cubic-bezier(0.34,1.56,0.64,1)';
   }
 
   function sayYes() {
     document.getElementById('main-content').style.display = 'none';
-    document.getElementById('btn-area').style.display = 'none';
-    document.querySelector('.divider').style.display = 'none';
     const yay = document.getElementById('yay-msg');
     yay.style.display = 'flex';
   }
