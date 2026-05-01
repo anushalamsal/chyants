@@ -156,6 +156,10 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
+  @keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
 </style>
 </head>
 <body>
@@ -186,12 +190,10 @@
     </div>
   </div>
 
-  <div class="yay" id="yay-msg">
-    <div class="yay-text">see you around the green, my fulkumari 🌿</div>
+  <div class="yay-text">see you around the green, my fulkumari 🌿</div>
     <div class="yay-sub">can't wait</div>
+    <div class="yay-sub" style="margin-top: 0.4rem;">May 9th, 2026 — be ready by 12:30pm</div>
   </div>
-
-</div>
 
 <script>
   const noBtn = document.getElementById('noBtn');
@@ -204,10 +206,35 @@
     noBtn.style.transform = `translate(${randX}px, ${randY}px)`;
   }
 
-  function sayYes() {
+function sayYes() {
     document.getElementById('main-content').style.display = 'none';
     const yay = document.getElementById('yay-msg');
     yay.style.display = 'flex';
+    launchConfetti();
+  }
+
+  function launchConfetti() {
+    const colors = ['#f9a8c9', '#f472b6', '#fbcfe8', '#fda4af', '#ffffff', '#fce7f3'];
+    for (let i = 0; i < 120; i++) {
+      setTimeout(() => {
+        const piece = document.createElement('div');
+        piece.style.cssText = `
+          position: fixed;
+          width: ${4 + Math.random() * 6}px;
+          height: ${8 + Math.random() * 8}px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          left: ${Math.random() * 100}vw;
+          top: -10px;
+          border-radius: 2px;
+          opacity: 1;
+          z-index: 999;
+          transform: rotate(${Math.random() * 360}deg);
+          animation: confettiFall ${1.5 + Math.random() * 2}s ease-in forwards;
+        `;
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 3500);
+      }, i * 30);
+    }
   }
 </script>
 </body>
